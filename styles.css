@@ -1,0 +1,275 @@
+
+:root {
+    --bg: #0f0f0f;
+    --text: #d1f1ff;
+    --card-bg: #1a1a1a;
+    --nav-bg: #111;
+    --header-bg: #080808;
+    --link-color: #00ffd1;
+    --accent: #00ff9f;
+    --danger: #ff4c4c;
+    --font: 'Courier New', Courier, monospace;
+  }
+  
+  body {
+    font-family: var(--font);
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(135deg, rgba(0,255,140,0.02) 25%, transparent 25%),
+                  linear-gradient(225deg, rgba(0,255,140,0.02) 25%, transparent 25%),
+                  linear-gradient(45deg, rgba(0,255,140,0.02) 25%, transparent 25%),
+                  linear-gradient(315deg, rgba(0,255,140,0.02) 25%, #0f0f0f 25%);
+    background-size: 40px 40px;
+  }  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 140, 0.1),
+        rgba(0, 255, 140, 0.1) 1px,
+        transparent 1px,
+        transparent 20px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(0, 255, 140, 0.1),
+        rgba(0, 255, 140, 0.1) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+    animation: gridMove 60s linear infinite;
+    z-index: -1;
+  }
+  
+  @keyframes gridMove {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: 1000px 1000px;
+    }
+  }
+  
+
+  header {
+    background-color: var(--header-bg);
+    color: var(--accent);
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 2px solid var(--accent);
+    text-shadow: 0 0 5px var(--accent);
+  }
+  
+  .resume-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: var(--accent);
+    color: #000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  
+  .resume-button:hover {
+    background-color: var(--link-color);
+  }
+  
+  nav {
+    background: var(--nav-bg);
+    padding: 10px 0;
+    text-align: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+  }
+  
+  nav  button {
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }  
+  
+  nav  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav  a :hover {
+    background-color: green;
+  }
+  
+  section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  h2 {
+    border-bottom: 2px solid #222;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+
+  .about-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  }
+  
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 15px rgba(0, 255, 140, 0.4);
+  }
+  .about-text {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+    }
+    
+    .about-image img {
+      width: 80%;
+      margin-bottom: 20px;
+    }
+  }
+  
+  footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
+  }
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  
+  .project-card {
+    background: var(--card-bg);
+    color: var(--text); /* Ensures text uses your defined text color */
+    border: 1px solid var(--accent); /* Changed border color to match theme */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 255, 140, 0.2); /* Updated shadow to match theme */
+    transition: transform 0.2s ease;
+  }
+  
+  .project-card p {
+    font-size: 0.9rem;
+    color: var(--text); /* Changed from #555 to use your text color */
+  }
+  
+  .project-card a {
+    color: var(--link-color); /* Changed from #0077cc to use your link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .project-card a:hover {
+    color: var(--accent); /* Changes color on hover */
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  button[type="submit"],
+#theme-toggle {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: var(--link-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+  
+  .form-msg {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .typing {
+    font-size: 1.2rem;
+    border-right: 2px solid var(--accent);
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(30, end) forwards, blink 0.7s infinite;
+  }
+  
+  @keyframes typing {
+    to {
+      width: 100%;
+    }
+  }
+  
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
+  }
+  #tsparticles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
